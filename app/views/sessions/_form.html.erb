@@ -1,0 +1,27 @@
+<%= form_with(model: session, local: true, url: session_path) do |form| %>
+  <% if session.errors.any? %>
+    <div id="error_explanation">
+      <ul>
+      <% session.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :username, 'Username:' %>
+    <div><%= form.text_field :username %></div>
+  </div>
+
+  <div class="field">
+    <br>
+    <%= form.label :password, 'Password:' %>
+    <div><%= form.password_field :password %></div>
+  </div>
+
+  <div class="actions">
+    <br>
+    <%= form.submit 'Login' %>
+  </div>
+<% end %>
