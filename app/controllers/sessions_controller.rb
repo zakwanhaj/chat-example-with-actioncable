@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
     respond_to do |format|
       if @session.valid?
         cookies.signed[:uuid] = @session.uuid
-        format.html { redirect_to messages_url, notice: 'Session was successfully created.' }
+        format.html { redirect_to channels_url, notice: 'Session was successfully created.' }
         format.json { render :show, status: :created, location: @session }
       else
         format.html { render :new }

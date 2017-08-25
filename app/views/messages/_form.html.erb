@@ -11,6 +11,8 @@
     </div>
   <% end %>
 
+  <%= form.hidden_field :channel_id %>
+
   <div class="field">
     <%= form.label :body, 'Type your message:' %><br>
     <%= form.text_area :body, id: :message_body, size: '50x10' %>

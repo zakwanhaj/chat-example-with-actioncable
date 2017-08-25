@@ -2,7 +2,10 @@ class Session
   include ActiveModel::Model
   include ActiveModel::Validations
 
-  USERNAMES = %w(zakwan).freeze
+  USERNAMES_PASSWORDS = {
+    'emran' => 'emran',
+    'zakwan' => 'zakwan'
+  }.freeze
 
   attr_accessor :username, :password
   attr_reader :uuid
@@ -11,7 +14,8 @@ class Session
 
   validates_each :username, :password do |record, attr, value|
     next if record.errors.messages.key?(attr)
-    record.errors.add attr, 'is incorrect' if USERNAMES.exclude? value
+    collection = USERNAMES_PASSWORDS.send(attr == :password ? :values : :keys)
+    record.errors.add attr, 'is incorrect' if collection.exclude? value
   end
 
   def initialize(attributes = {})
@@ -23,7 +27,7 @@ class Session
     return if uuid.blank?
 
     username = Base64.urlsafe_decode64(uuid)
-    return if USERNAMES.exclude? username
+    return if USERNAMES_PASSWORDS.keys.exclude? username
 
     new username: username
   end

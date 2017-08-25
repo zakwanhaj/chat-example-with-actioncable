@@ -1,0 +1,13 @@
+<br>
+
+<h2><%= "#{@channel.name.titleize} Channel" %></h2>
+<%= link_to 'Back to Channels', channels_path %>
+
+<br><br>
+<%= render 'messages/form', message: @message %>
+<br>
+
+<h3>Messages</h3>
+
+<div id="messages" data-channel-id="<%= @channel.name %>">
+</div>

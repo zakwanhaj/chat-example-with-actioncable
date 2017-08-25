@@ -1,0 +1,7 @@
+<h2>Channels</h2>
+
+<ul>
+<% @channels.each do |channel| %>
+  <li><%= link_to channel.name.titleize, channel_path(channel) %></li>
+<% end %>
+</ul>
