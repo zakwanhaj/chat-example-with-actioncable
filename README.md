@@ -1,24 +1,37 @@
-# README
+## README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a testing project of Mini Chat System. It demonstrates how, the new feature in Rails 5, Action Cable works.
+The app contains 3 models: Sessions, Channels and Messages (Without using DB).
 
-Things you may want to cover:
+#### Ruby version
+2.4.0
 
-* Ruby version
+### System dependencies
+* Redis (in case you're running the app in production ENV.)
+```
+sudo apt-get install redis-server
+```
 
-* System dependencies
+### Configuration
+1. Installing Ruby version management either [RVM](https://rvm.io/) or [rbenv](https://github.com/rbenv/rbenv) or whatever you're familiar with.
 
-* Configuration
+2. Installing `Bundler` gem:
+```
+gem install bundler
+```
 
-* Database creation
+3. Installing the required application gems:
+```
+bundle install
+```
 
-* Database initialization
 
-* How to run the test suite
+### Running the App
+Type in Terminal `rails s` then go to your browser and open http://localhost:3000/
 
-* Services (job queues, cache servers, search engines, etc.)
+To pass Login form, pick one of followings:
 
-* Deployment instructions
-
-* ...
+| Username | Password |
+| -------- |:--------:|
+| emran    | emran    |
+| zakwan   | zakwan   |
