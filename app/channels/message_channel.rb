@@ -15,4 +15,8 @@ class MessageChannel < ApplicationCable::Channel
   def leave
     stop_all_streams
   end
+
+  def post_message(data)
+    Message.new(channel_id: data['channel_id'], body: data['body']).save
+  end
 end
